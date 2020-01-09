@@ -48,3 +48,20 @@
 ;;
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
+
+;; skk
+(use-package! ddskk
+  :bind (("C-x j" . skk-mode)
+         ("C-x C-j" . skk-mode))
+  :init (progn
+          (setq skk-server-host "localhost"
+                skk-server-portnum 1178)
+          (require 'skk)
+
+          ;; commit-log では日本語入力をオン
+          (add-hook 'git-commit-mode-hook 'skk-mode)
+          ;;(message "skk init!")
+          )
+  ;; パッケージ名が autoload に指定出来る形式でないため autoload が失敗するため
+  ;; :configは実行されない
+  )

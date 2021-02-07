@@ -64,3 +64,10 @@
 (add-hook 'git-commit-mode-hook 'skk-mode)
 ;; /skk
 
+;; PATH
+(exec-path-from-shell-initialize)
+
+;; Geben(PHP XDebug)
+(define-key php-mode-map
+  (kbd "C-c g")
+  'geben-add-current-line-to-predefined-breakpoints)
